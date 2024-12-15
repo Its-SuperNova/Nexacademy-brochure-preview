@@ -1,11 +1,20 @@
-import React from 'react'
+// app/page.tsx
+import HomePage from "./components/Home";
+import Footer from "./components/common/Footer";
+import dynamic from "next/dynamic";
+const ScrollHandler = dynamic(
+  () => import("./components/Home/ScrollHandler"),
+  { ssr: false }
+);
 
-function HomePage() {
+const Home: React.FC = () => {
   return (
-    <div>
-      
-    </div>
-  )
-}
+    <>
+      <ScrollHandler />
+      <HomePage />
+      <Footer />
+    </>
+  );
+};
 
-export default HomePage
+export default Home;
